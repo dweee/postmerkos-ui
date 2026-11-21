@@ -12,6 +12,14 @@
         };
       in
       {
+        packages.default = pkgs.buildNpmPackage {
+          pname = "postmerkos-ui";
+          version = (builtins.fromJSON (builtins.readFile ./package.json)).version;
+          src = self;
+          npmDeps = pkgs.importNpmLock { npmRoot = self; };
+          npmConfigHook = pkgs.importNpmLock.npmConfigHook;
+          installPhase = "cp -r build $out";
+        };
         devShells.default = with pkgs; mkShell {
           packages = [
             nodejs_22

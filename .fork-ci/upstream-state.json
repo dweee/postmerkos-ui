@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "upstream": "hall/postmerkos-ui",
+  "track": "branch",
+  "branch": "e2a96fd674b987a1efd683b7b4ecdd624fbdeb08"
+}
